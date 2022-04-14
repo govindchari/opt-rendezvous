@@ -1,3 +1,4 @@
 cvxpy
 cvxpygen
 matplotlib
+scipy
