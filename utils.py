@@ -19,7 +19,7 @@ def getABd(n, dt):
                   [                    (2.0 / n) * cnt,                       (4.0 / n) * snt - 3.0 * dt,                  dt],
                   [                                 dt,                                               dt,     (1.0 / n) * snt]
                 ])
-    return Ad, Bd
+    return (Ad, Bd)
 
 def getABc(n):
     Ac = np.array([[       0.0, 0.0,   0.0,     1.0,     0.0,   0.0],
@@ -29,6 +29,7 @@ def getABc(n):
                   [       0.0, 0.0,   0.0, -2.0 * n,     0.0,   0.0],
                   [       0.0, 0.0, -n**2,      0.0,     0.0, -n**2]
                 ])
+                
     Bc = np.array([[0.0, 0.0, 0.0],
                    [0.0, 0.0, 0.0],
                    [0.0, 0.0, 0.0],
@@ -36,5 +37,5 @@ def getABc(n):
                    [0.0, 1.0, 0.0],
                    [0.0, 0.0, 1.0],
                 ])
-    return Ac, Bc
+    return (Ac, Bc)
 
