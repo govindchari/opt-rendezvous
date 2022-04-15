@@ -1,4 +1,4 @@
-from cmath import tan
+from turtle import color
 import cvxpy as cp
 import numpy as np
 from matplotlib import pyplot as plt
@@ -47,17 +47,31 @@ prob = cp.Problem(cp.Minimize(objective), constraints)
 
 prob.solve(verbose = False)
 
-#Plotting
+# Trajectory plot
 plt.figure()
 ax = plt.axes(projection='3d')
-ax.plot3D(x.value[0,:], x.value[1,:], x.value[2,:])
+ax.plot3D(x.value[0,:], x.value[1,:], x.value[2,:], color='black', label='Trajectory')
+plt.plot(x.value[0,0], x.value[1,0], x.value[2,0], marker="*", markersize=5, color="green", label='Start')
+plt.plot(x.value[0,N-1], x.value[1,N-1], x.value[2,N-1], marker="*", markersize=5, color="red", label='End')
 ax.set_xlim(-10, 100); ax.set_ylim(-10, 100); ax.set_zlim(-10, 100)
 
+theta = np.linspace(0,2*np.pi,90)
+r = np.linspace(0,100,50)
+T, R = np.meshgrid(theta, r)
+X = R * np.cos(T)
+Z = R * np.sin(T)
+Y = leading * np.sqrt(X**2 + Z**2)/np.tan(th)
+Y[Y < 0] = np.nan
+ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10, label='Approach Cone')
+ax.set_xlim(-100, 100); ax.set_ylim(-10, 100); ax.set_zlim(-100, 100)
+ax.set_xlabel('Radial (m)')
+ax.set_ylabel('Along Track (m)')
+ax.set_zlabel('Out of Plane (m)')
+ax.set_title('Rendezvous Trajectory')
+ax.legend()
 
-plt.figure()
-plt.plot(x.value[1,:],x.value[0,:])
-plt.axis('equal')
 
+# Thrust Plot
 plt.figure()
 plt.plot(np.transpose(u.value))
 
