@@ -36,8 +36,8 @@ constraints = [x[:,0] == x0]
 constraints += [x[:,N-1] == xT]
 
 for k in range(N):
-    #objective += cp.norm(u[:,k], 1)        #L1-norm penalty
-    objective += cp.sum_squares(u[:,k])    #L2-norm penalty
+    objective += cp.norm(u[:,k], 1)        #L1-norm penalty
+    #objective += cp.sum_squares(u[:,k])    #L2-norm penalty
     constraints += [x[:,k+1] == Ad@x[:,k] + Bd@u[:,k]]
     constraints += [cp.norm(u[:,k]) <= umax]
     constraints += [cp.norm(S @ x[:,k]) <= leading * np.tan(th)*x[1,k]]
@@ -73,6 +73,12 @@ ax.legend()
 
 # Thrust Plot
 plt.figure()
-plt.plot(np.transpose(u.value))
+plt.plot(np.transpose(u.value), label=['$f_x$','$f_y$','$f_z$'])
+
+plt.xlabel('Timestep')
+plt.ylabel('Specific Force ($m/s^2$)')
+plt.title('Control History')
+plt.autoscale()
+plt.legend()
 
 plt.show()
