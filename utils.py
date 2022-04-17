@@ -59,4 +59,3 @@ def getABc(n):
                    [0.0, 0.0, 1.0],
                 ])
     return (Ac, Bc)
-
