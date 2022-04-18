@@ -1,5 +1,5 @@
-import trajopt
-import plotter
+import include.trajopt as trajopt
+import include.plotter as plotter
 from matplotlib import pyplot as plt
 
 n = 0.00113
