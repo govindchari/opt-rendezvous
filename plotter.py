@@ -28,6 +28,26 @@ def plot_monte_carlo(X):
     ax.set_zlabel('Out of Plane (m)')
     ax.set_title('Rendezvous Trajectories')
 
+    # Trajectory plot
+    plt.figure()
+    for i in range(int(N/6)):
+        plt.plot(X[i * 6 + 1,:], X[i * 6,:])
+    plt.xlim(0, 1000)
+    plt.ylim(-500,500)
+    plt.ylabel('Radial (m)')
+    plt.xlabel('Along Track (m)')
+    plt.title('Rendezvous Trajectories')
+
+    # Trajectory plot
+    plt.figure()
+    for i in range(int(N/6)):
+        plt.plot(X[i * 6 + 1,:], X[i * 6 + 2,:])
+    plt.xlim(0, 1000)
+    plt.ylim(-500,500)
+    plt.ylabel('Out of Plane (m)')
+    plt.xlabel('Along Track (m)')
+    plt.title('Rendezvous Trajectories')
+
 def aut():
     theta = np.linspace(0,2*np.pi,90)
     r = np.linspace(0,100,50)
