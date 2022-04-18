@@ -21,7 +21,7 @@ def getABd(n, dt):
                 ])
     return (Ad, Bd)
 
-def getABd_zoh(n, dt):
+def getAB(n, dt):
     nt = n*dt
     snt = np.sin(nt)
     cnt = np.cos(nt)

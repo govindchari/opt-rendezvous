@@ -48,19 +48,6 @@ def plot_monte_carlo(X):
     plt.xlabel('Along Track (m)')
     plt.title('Rendezvous Trajectories')
 
-def aut():
-    theta = np.linspace(0,2*np.pi,90)
-    r = np.linspace(0,100,50)
-    T, R = np.meshgrid(theta, r)
-    X = R * np.cos(T)
-    Z = R * np.sin(T)
-    Y = leading * np.sqrt(X**2 + Z**2)/np.tan(th)
-    Y[Y < 0] = np.nan
-    ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10, label='Approach Cone')
-    ax.set_xlim(-100, 100); ax.set_ylim(-10, 100); ax.set_zlim(-100, 100)
-
-
-
 def plot_control(U):
     plt.figure()
     plt.plot(np.transpose(U), label=['$f_x$','$f_y$','$f_z$'])

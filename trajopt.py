@@ -7,7 +7,7 @@ def planner(time, dt, n, x0):
     N = int(time/dt)
 
     #Physics parameters
-    Ad, Bd = utils.getABd_zoh(n,dt)
+    Ad, Bd = utils.getAB(n,dt)
     [nx, nu] = Bd.shape
 
     # Initial and terminal conditions
