@@ -6,7 +6,7 @@ n = 0.00113
 N = 100
 x0 = np.array([500.,1000.,500.,0.,0.,0.])
 val_list = np.zeros(N)
-tof_list = np.linspace(700,1500,N)
+tof_list = np.linspace(700,3000,N)
 
 
 for i in range(N):
