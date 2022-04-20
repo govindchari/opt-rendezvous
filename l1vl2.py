@@ -34,9 +34,12 @@ plt.legend()
 plt.figure()
 plt.plot(x1[1,:], x1[0,:], label='L1 Norm')
 plt.plot(x2[1,:], x2[0,:], label='L2 Norm')
+
+#Hardcoded a 45 degree approach cone
 ac = np.linspace(0,1000,100)
 plt.plot(ac,ac,label = 'Approach Cone',color="black")
 plt.plot(ac,-ac,color="black")
+
 plt.xlim(0, 1000)
 plt.ylim(-500,500)
 plt.ylabel('Radial (m)')
@@ -47,9 +50,12 @@ plt.title('Rendezvous Trajectories')
 plt.figure()
 plt.plot(x1[1,:], x1[2,:], label='L1 Norm')
 plt.plot(x2[1,:], x2[2,:], label='L2 Norm')
+
+#Hardcoded a 45 degree approach cone
 ac = np.linspace(0,1000,100)
 plt.plot(ac,ac,label = 'Approach Cone',color="black")
 plt.plot(ac,-ac,color="black")
+
 plt.legend()
 plt.xlim(0, 1000)
 plt.ylim(-500,500)
