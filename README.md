@@ -8,7 +8,7 @@ Spacecraft rendezvous using convex optimization. Part of final presentation for 
 Download opt-rendezvous with the following command
 
 ```
-git clone --recurse-submodules https://github.com/govindchari/opt-rendezvous.git
+git clone https://github.com/govindchari/opt-rendezvous.git
 ```
 ### Installation
 
