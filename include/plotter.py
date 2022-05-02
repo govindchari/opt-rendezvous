@@ -7,19 +7,12 @@ def plot_trajectory(X):
     plt.figure()
     ax = plt.axes(projection='3d')
     ax.plot3D(X[0,:], X[1,:], X[2,:], color='black', label='Trajectory')
-    plt.plot(X[0,N-1], X[1,N-1], X[2,N-1], marker="*", markersize=5, color="red", label='End')
-
-    #Hardcoded a 45 degree approach cone
-    ac = np.linspace(0,1000,100)
-    plt.plot(ac,ac,label = 'Approach Cone',color="black")
-    plt.plot(ac,-ac,color="black")
-
-    ax.set_xlim(-10, 100); ax.set_ylim(-10, 100); ax.set_zlim(-10, 100)
     ax.set_xlabel('Radial (m)')
     ax.set_ylabel('Along Track (m)')
     ax.set_zlabel('Out of Plane (m)')
     ax.set_title('Rendezvous Trajectory')
     ax.legend()
+    plt.show()
 
 def plot_monte_carlo(X):
     N, Cols = X.shape
@@ -53,11 +46,6 @@ def plot_monte_carlo(X):
     plt.figure()
     for i in range(int(N/6)):
         plt.plot(X[i * 6 + 1,:], X[i * 6 + 2,:])
-
-    #Hardcoded a 45 degree approach cone
-    ac = np.linspace(0,1000,100)
-    plt.plot(ac,ac,label = 'Approach Cone',color="black")
-    plt.plot(ac,-ac,color="black")
     
     plt.xlim(0, 1000)
     plt.ylim(-500,500)
