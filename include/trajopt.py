@@ -85,8 +85,8 @@ def planner_l2(time, dt, n, x0):
     x_init.value = x0
     prob = cp.Problem(cp.Minimize(objective), constraints)
 
-    val = prob.solve(verbose = False)
-    return (x.value, u.value, val)
+    cost = prob.solve(verbose = False)
+    return (x.value, u.value, cost)
 
 def monte_carlo_l1(time, dt, n, no_trials):
     # Prediction horizon
