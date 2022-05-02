@@ -1,5 +1,5 @@
 # opt-rendezvous
-Spacecraft rendezvous using convex optimization. Part of final presentation for MAE 6720: Advanced Astrodynamics.
+Spacecraft rendezvous using convex optimization. Code for final presentation for MAE 6720: Advanced Astrodynamics. Presentation slides can be found here, and lecture handout can be found here.
 
 ## Installation Guide
 
